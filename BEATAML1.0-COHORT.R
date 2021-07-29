@@ -4,14 +4,6 @@ require(EDASeq)
 require(dplyr)
 require(NOISeq)
 library(DESeq2)
-library(png)
-library(grid)
-library(gridExtra)
-library(ggplot2)
-library(reshape2)
-library(BiocParallel)
-library(cqn)
-library(pcaMethods)
 
 qry.rna <- GDCquery(project = "BEATAML1.0-COHORT",
                     data.category= "Transcriptome Profiling",
