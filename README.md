@@ -1,12 +1,12 @@
 # BEATAML1.0-COHORT 
 
 # Sample types:
- Blood Derived Normal 21                                  
+ Blood Derived Normal 21 (PB.normal)                                   
  Control Analyte 12
- Primary Blood Derived Cancer - Bone Marrow  139   
- Primary Blood Derived Cancer - Peripheral Blood 89                                                                                              
- Recurrent Blood Derived Cancer - Bone Marrow 106 
- Recurrent Blood Derived Cancer - Peripheral Blood 143
+ Primary Blood Derived Cancer - Bone Marrow  139 (BM)
+ Primary Blood Derived Cancer - Peripheral Blood 89 (PB)                                                                                              
+ Recurrent Blood Derived Cancer - Bone Marrow 106 (rPB)
+ Recurrent Blood Derived Cancer - Peripheral Blood 143 (rBM)
                                                                                               
                                               
 # Diagnosis
