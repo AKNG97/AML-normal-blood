@@ -75,7 +75,7 @@ ln.data <- withinLaneNormalization(assay(rnas),
 gcn.data <- withinLaneNormalization(ln.data , rnas.Biomart$GC,
                                     which = "full")
 norm.counts <- tmm(gcn.data, long = 1000, lc = 0, k = 0)
-noiseqData <- NOISeq::readData( norm.counts , factors = as.data.frame(rnas$primary_diagnosis), as.data.frame(rnas$sample_type))
+noiseqData <- NOISeq::readData( norm.counts , factors = as.data.frame(rnas$primary_diagnosis), as.data.frame(rnas$sample_type)) # ¿puedo añadir aquí el diagnosis y sample type a la vez?
 mydata2corr1 = NOISeq::ARSyNseq(noiseqData, norm = "n",  logtransf = FALSE)
 assay(rnas) <- exprs(mydata2corr1)
 
