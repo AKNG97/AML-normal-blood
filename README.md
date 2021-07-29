@@ -2,7 +2,7 @@
 
 # Sample types:
  Blood Derived Normal 21 (PB.normal)                                   
- Control Analyte 12
+ Control Analyte 12 (CA)
  Primary Blood Derived Cancer - Bone Marrow  139 (BM)
  Primary Blood Derived Cancer - Peripheral Blood 89 (PB)                                                                                              
  Recurrent Blood Derived Cancer - Bone Marrow 106 (rPB)
