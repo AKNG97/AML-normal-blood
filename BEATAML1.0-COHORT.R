@@ -67,7 +67,7 @@ rnas.Biomart<-merge(x=annot, y=data.bio, by.x="ensembl_gene_id", by.y="V511",
 extra.rows <- nrow(rnas.Biomart)-nrow(data.bio) 
 cat('There are ', extra.rows, ' extra rows in the counts matrix.\n') # perdí 28 genes
 
-rnas <- rnas[rownames(rnas) %in% rnas.Biomart$ensembl_gene_id, ] #aseguro que no hayan duplicados de EnsemblID
+rnas <- rnas[rownames(rnas) %in% rnas.Biomart$ensembl_gene_id, ]
 dim(rnas)
 
 ln.data <- withinLaneNormalization(assay(rnas), 
