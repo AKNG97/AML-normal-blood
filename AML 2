@@ -1,0 +1,20 @@
+inter <- intersect(rownames(rnas), annot$Gene.name)
+rnas1 <- rnas[rownames(rnas) %in% inter,]
+annot1 <- annot[annot$Gene.name %in% inter,]
+annot1 <- annot1[!duplicated(annot1$Gene.name),]
+
+names(annot1)<-c("Gene.name", "Chr", "Start", "End", "GC", "Type", "ensembl_gene_id")
+annot1$Length <- abs(annot1$End - annot1$Start)
+
+# Columnas
+bool <- (rnas1$primary_diagnosis == "Acute myeloid leukemia with mutated NPM1") & (rnas1$sample_type == "Primary Blood Derived Cancer - Peripheral Blood")
+rnas1$grupo[bool] <- "LMA.NPM1-PBDC.PB"
+bool <- (rnas1$primary_diagnosis == "Acute myeloid leukemia with myelodysplasia-related changes") & (rnas1$sample_type == "Primary Blood Derived Cancer - Peripheral Blood")
+rnas1$grupo[bool] <- "LMA.MRC-PBDC.PB"
+rnas1$grupo <- as.factor(rnas1$grupo)
+rnas1 <- rnas1[,!is.na(rnas1$grupo)]
+
+ln.data <- withinLaneNormalization(assay(rnas1), annot1$Length, which = "full")
+gcn.data <- withinLaneNormalization(ln.data , annot1$GC, which = "full")
+norm.counts <- tmm(gcn.data, long = 1000, lc = 0, k = 0)
+noiseqData <- NOISeq::readData( norm.counts , factors = as.data.frame(rnas1$grupo))
